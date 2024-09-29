@@ -21,10 +21,10 @@ export interface Config {
 }
 
 export const configData: Config = {
-	siteTitle: 'Katuq Tailwind CSS Astro Starter Kit by Oxygenna',
+	siteTitle: 'Katuq',
 	siteDescription:
-		'Katuq is a design and development agency that specializes in creating beautiful and functional websites.',
-	ogImage: '/og.jpg',
+		'Empower your business with advanced AI and automated solutions from sales to delivery.',
+	ogImage: '/faviconkatuq.png',
 	logo: {
 		src: '/logo.svg',
 		alt: 'Katuq logo'

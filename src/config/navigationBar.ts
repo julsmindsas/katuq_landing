@@ -27,6 +27,7 @@ export interface NavAction {
 
 export interface NavData {
 	logo: Logo
+	logoLarge: Logo
 	navItems: NavItem[]
 	navActions: NavAction[]
 }
@@ -36,6 +37,11 @@ export const navigationBarData: NavData = {
 		src: '/logo.svg',
 		alt: 'The tailwind astro theme',
 		text: 'Katuq'
+	},
+	logoLarge: {
+		src: '/logocompleto.svg',
+		alt: 'Katuq logo completo',
+		text: ''
 	},
 	navItems: [
 		{ name: 'Home', link: '/' },
