@@ -16,7 +16,7 @@
 // Props
 type Props = {
 	type?: 'link' | 'button' | 'submit' | 'reset'
-	size?: 'lg' | 'base' | 'sm'
+	size?: 'lg' | 'base' | 'sm'| 'xl'
 	link?: string
 	modal?: string
 	style?: 'primary' | 'secondary' | 'neutral'
@@ -70,7 +70,7 @@ const {
 }
 <style>
 	.button {
-		@apply inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded font-bold tracking-wide transition duration-300 focus-visible:outline-none disabled:cursor-not-allowed disabled:shadow-none;
+		@apply inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded font-bold tracking-wide transition duration-300 focus-visible:outline-none disabled:cursor-not-allowed disabled:shadow-none rounded-full text-xl h-14 px-8;
 	}
 
 	.button--lg {

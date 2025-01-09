@@ -39,7 +39,7 @@ export const navigationBarData: NavData = {
 		text: 'Katuq'
 	},
 	logoLarge: {
-		src: '/logocompleto.svg',
+		src: '/logocompleto.png',
 		alt: 'Katuq logo completo',
 		text: ''
 	},
