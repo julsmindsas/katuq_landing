@@ -18,13 +18,15 @@ type Props = {
 	cite?: string
 	bg?: any
 	bgPosition?: 'left' | 'right' | 'center'
+	color?: string
 }
 const {
-	blockquote = 'Katuq is like a rocket boost for our productivity! Its sleek design and out-of-this-world features make managing projects and team communication a breeze.',
-	figcaption = 'Sheryl Sandberg',
-	cite = 'CEO, Facebook',
+	blockquote = '',
+	figcaption = '',
+	cite = '',
 	bg,
-	bgPosition = 'center'
+	bgPosition = 'center',
+
 } = Astro.props
 ---
 
@@ -33,7 +35,8 @@ const {
 	mode="dark"
 	bg={bg}
 	bgPosition={bgPosition}
-	classes="dark:border-t border-y border-neutral-800"
+	classes="dark:border-t  border-neutral-800"
+	
 >
 	<Row>
 		<Col span="12">
@@ -44,8 +47,7 @@ const {
 				align="center"
 				size="4xl"
 				mobileSize="2xl"
-				classes="!leading-tight font-bold xl:text-5xl max-w-4xl mx-auto"
-				quoteSize={112}
+				classes="!leading-tight font-bold xl:text-5xl max-w-5xl mx-auto"
 			/>
 		</Col>
 	</Row>

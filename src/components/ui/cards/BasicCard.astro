@@ -28,10 +28,10 @@ type Props = {
 	image?: any
 	icon?: string
 	link?: string
-	type?: 'image-top' | 'image-bottom'
+	type?: 'image-top' | 'image-bottom'| 'image-full'
 	classes?: string
 }
-const { title = '', subtitle, titleSize = 'lg', image, icon, link, type, classes } = Astro.props
+const { title = '', subtitle, titleSize = 'xl', image, icon, link, type, classes } = Astro.props
 ---
 
 <Card classes={classes} link={link}>
@@ -40,7 +40,7 @@ const { title = '', subtitle, titleSize = 'lg', image, icon, link, type, classes
 			<Image
 				src={image}
 				alt={title}
-				class={type === 'image-bottom' ? 'order-2' : ''}
+				class={type === 'image-full' ? 'order-2' : ''}
 				width={600}
 				height={400}
 			/>
@@ -54,17 +54,7 @@ const { title = '', subtitle, titleSize = 'lg', image, icon, link, type, classes
 		)
 	}
 	<CardBody>
-		{
-			title && (
-				<h3 class:list={[['text-' + `${titleSize} ` + `lg:text` + `${titleSize}`]]}>{title}</h3>
-			)
-		}
-		{subtitle && <p>{subtitle}</p>}
 		<slot />
 	</CardBody>
 </Card>
-<style>
-	.card__icon {
-		@apply inline-block size-6 shrink-0 text-primary-500;
-	}
-</style>
+
