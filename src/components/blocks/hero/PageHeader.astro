@@ -8,8 +8,11 @@
 import Section from '../../ui/Section.astro'
 import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
+import { Image } from 'astro:assets'
 
 // Props
+//Imagen
+import fraseLogo from '../../../assets/frase-logo.png'
 type Props = {
 	id?: string
 	title?: string
@@ -22,11 +25,12 @@ const { id = 'intro', title, text, classes } = Astro.props
 <Section id={id} classes=`bg-neutral-50 dark:bg-neutral-900 ${classes}`>
 	<Row>
 		<Col span="12" align="center">
-			<header class="page-header">
-				<h1 class="page-header__title" set:html={title} />
-				<p class="page-header__text" set:html={text} />
-			</header>
-		</Col>
+			<Image
+			src={fraseLogo}
+			alt="Katuq incrementa y reduce"
+			class="translate-y8 shadow-2xl shadow-neutral-200 dark:shadow-neutral-950 "
+			format='webp'
+		/></Col>
 	</Row>
 </Section>
 
