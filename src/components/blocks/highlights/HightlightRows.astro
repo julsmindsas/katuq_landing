@@ -23,6 +23,7 @@ type HighlightBlock = {
     image2Width?: number
     image2Height?: number
     image2Position?: 'left' | 'right'
+	isLast?: boolean
 }
 
 const highlightBlocks: HighlightBlock[] = [
@@ -55,16 +56,17 @@ const highlightBlocks: HighlightBlock[] = [
         imageHeight: highlight03.height,
         imagePosition: 'right'
     },
-    {
+	{
         image: highlight04,
         mobileImage: highlight04mobile,
-        imageWidth: highlight04.width,
-        imageHeight: highlight04.height,
+        imageWidth:highlight04.width/2,
+        imageHeight: highlight04.height/2,
         imagePosition: 'left',
-		image2: highlight04s,
+        image2: highlight04s,
         image2Position: 'right',
         image2Height: highlight04s.height,
-        image2Width: highlight04s.width
+        image2Width: highlight04s.width,
+
     }
 ]
 ---
@@ -84,7 +86,7 @@ const highlightBlocks: HighlightBlock[] = [
             image2Position={highlight.image2Position}
             image2Height={highlight.image2Height}
             image2Width={highlight.image2Width}
-            classes={key === 0 ? '!pb-0' : key === highlightBlocks.length - 1 ? '!pt-0' : '!py-0'}
+            classes={`${key === 0 ? '!pb-0' : key === highlightBlocks.length - 1 ? '!pt-0' : '!py-0'} ${key === highlightBlocks.length - 1 ? 'last-image' : ''}`}
         />
     ))
 }
