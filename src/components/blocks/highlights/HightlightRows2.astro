@@ -1,0 +1,55 @@
+---
+import TextImage2 from '../basic/TextImage2.astro'
+
+import highlight01 from '../../../assets/highlights/highlight2-01.png'
+import highlight01s from '../../../assets/highlights/highlight2-02.png'
+
+type HighlightBlocks2 = {
+    title?: string
+    text?: string
+    image: any
+    mobileImage?: any
+    imageWidth: number
+    imageHeight: number
+    imagePosition: 'left' | 'right'
+    image2?: any
+    image2Width?: number
+    image2Height?: number
+    image2Position?: 'left' | 'right'
+	isLast?: boolean
+}
+const highlightBlocks2: HighlightBlocks2[] =[
+{
+        title: '-Clientes ilimitados'+ '<br>' + '-Usuarios ilimitados'+ '<br> ' + '-Creación de pedidos ilimitados'+ ' <br>' + '-App Mensajero'+ ' <br>' + '-Asistencia y Soporte 24 / 7'+ ' <br>' + '-Configuraciones abiertas',
+        image: highlight01,
+        imageWidth: highlight01.width,
+        imageHeight: highlight01.height,
+        imagePosition: 'right',
+        image2: highlight01s,
+        image2Position: 'right',
+        image2Height: highlight01s.height,
+        image2Width: highlight01s.width
+    },
+]
+
+---
+
+{
+highlightBlocks2.map((highlight, key) => (
+        <TextImage2
+            id={`highlight-${key}`}
+            title={highlight.title}
+            text={highlight.text}
+            image={highlight.image}
+            imageWidth={highlight.imageWidth}
+            imageHeight={highlight.imageHeight}
+            mobileImage={highlight.mobileImage}
+            imagePosition={highlight.imagePosition}
+            image2={highlight.image2}
+            image2Position={highlight.image2Position}
+            image2Height={highlight.image2Height}
+            image2Width={highlight.image2Width}
+            classes={`${key === 0 ? '!pb-0' : key === highlightBlocks2.length - 1 ? '!pt-0' : '!py-0'} ${key === highlightBlocks2.length - 1 ? 'last-image' : ''}`}
+        />
+    ))
+}

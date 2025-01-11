@@ -41,6 +41,7 @@ type PricingTableProps = {
 	}
 	body?: {
 		listItems: Array<{ listItem: string }>
+		bgImage?: string
 	}
 	footer?: {
 		buttonName: string
@@ -119,6 +120,7 @@ const { type, header, body, footer } = data
 						listItems={body.listItems}
 						classes={type === 'featured' ? '[&_li]:!text-primary-50 space-y-4' : 'space-y-4'}
 						listColor={type === 'featured' ? 'white' : 'primary'}
+						
 					/>
 				</Body>
 			)
