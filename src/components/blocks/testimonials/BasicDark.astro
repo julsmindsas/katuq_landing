@@ -4,6 +4,7 @@
 // Description: A centered testimonial section that contains: a quote, a caption and a cite in a dark section with a background image.
 
 // Components
+import Katuq from '../../../assets/logos/Katuq.jpg'
 // - Layout
 import Section from '../../ui/Section.astro'
 import Row from '../../ui/Row.astro'
@@ -13,7 +14,7 @@ import Testimonial from '../../ui/Testimonial.astro'
 
 // Props
 type Props = {
-	blockquote?: string
+	blockquote?: any
 	figcaption?: string
 	cite?: string
 	bg?: any
@@ -21,10 +22,10 @@ type Props = {
 	color?: string
 }
 const {
-	blockquote = '',
+	blockquote = Katuq,
 	figcaption = '',
 	cite = '',
-	bg,
+	bg = Katuq,
 	bgPosition = 'center',
 
 } = Astro.props
@@ -48,6 +49,7 @@ const {
 				size="4xl"
 				mobileSize="2xl"
 				classes="!leading-tight font-bold xl:text-5xl max-w-5xl "
+				isImage={true}
 			/>
 		</Col>
 	</Row>

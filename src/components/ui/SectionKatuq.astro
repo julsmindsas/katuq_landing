@@ -1,0 +1,20 @@
+---
+// filepath: /c:/sorcecodejuls/katuq_landing/src/components/ui/SectionKatuq.astro
+type Props = {
+    bg: string // Asegúrate de que bg sea una URL de imagen válida
+}
+const { bg } = Astro.props
+---
+
+<section class="section-katuq" style={`background-image: url(${bg});`}>
+</section>
+
+<style>
+    .section-katuq {
+        width: 100%;
+        height: 100vh; /* Ocupa toda la altura de la ventana */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+</style>

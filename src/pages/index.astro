@@ -8,10 +8,11 @@ import Features from '../components/blocks/features/FeatureCards.astro'
 import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
 import HighlightBlocks from '../components/blocks/highlights/HightlightRows.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
+import SectionKatuq from '../components/ui/SectionKatuq.astro'
 
 // Content
 // - Testimonial background
-import testimonialBackground from '../assets/Katuq.jpg'
+import Katuq from '../assets/Katuq.jpg'
 // - SEO
 const SEO = {
 	title: 'Katuq | Success is in the details',
@@ -23,7 +24,8 @@ const SEO = {
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero />
 	<Features />
-	<Testimonial bg={testimonialBackground}/>
+	<!-- <Testimonial/> -->
+	<SectionKatuq bg="src/assets/Katuq.jpg" />
 	<HighlightBlocks />
 	<!-- <CTA /> -->
 </Layout>
