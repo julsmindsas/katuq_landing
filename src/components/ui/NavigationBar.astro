@@ -28,11 +28,11 @@ function isActivePath(currentPath: string): boolean {
 }
 
 // Type assertion for navActions to ensure type safety
-const savedNavActions = navActions.map((action) => ({
-	...action,
-	size: action.size as 'base' | 'lg' | 'sm',
-	style: action.style as 'primary' | 'secondary' | 'neutral'
-}))
+// const savedNavActions = navActions.map((action) => ({
+// 	...action,
+// 	size: action.size as 'base' | 'lg' | 'sm',
+// 	style: action.style as 'primary' | 'secondary' | 'neutral'
+// }))
 ---
 
 <header class="header">
@@ -105,15 +105,15 @@ const savedNavActions = navActions.map((action) => ({
 			<!-- <Switcher /> -->
 
 			<!-- Navigation action buttons -->
-			<div class="header__actions">
-				{
+			<!-- <div class="header__actions">
+				 {
 					savedNavActions.map((action) => (
 						<Button classes="flex-auto" size={action.size} style={action.style} modal="signup">
 							{action.name}
 						</Button>
 					))
-				}
-			</div>
+				} 
+			</div> -->
 		</nav>
 	</div>
 </header>

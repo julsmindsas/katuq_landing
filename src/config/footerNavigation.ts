@@ -37,7 +37,7 @@ export const footerNavigationData: FooterData = {
 	footerAbout: {
 		title: 'Katuq',
 		aboutText:
-			'Expertly made, responsive, accessible components in React and HTML ready to be used on your website or app. Just copy and paste them on your Tailwind CSS project.',
+			'Componentes accesibles, responsivos y hechos por expertos en React y HTML listos para usar en su sitio web o aplicación. Sólo tienes que copiarlos y pegarlos en tu proyecto CSS de Tailwind.',
 		logo: {
 			src: '/logocompleto.png',
 			alt: 'The tailwind astro theme',
@@ -46,60 +46,60 @@ export const footerNavigationData: FooterData = {
 	},
 	footerColumns: [
 		{
-			category: 'Product',
+			category: 'Productos',
 			subCategories: [
+				// {
+				// 	subCategory: 'Features',
+				// 	subCategoryLink: '/features'
+				// },
+				// {
+				// 	subCategory: 'FAQ',
+				// 	subCategoryLink: '/faq'
+				// },
 				{
-					subCategory: 'Features',
-					subCategoryLink: '/features'
-				},
-				{
-					subCategory: 'FAQ',
-					subCategoryLink: '/faq'
-				},
-				{
-					subCategory: 'Pricing',
+					subCategory: 'Precios',
 					subCategoryLink: '/pricing'
 				},
-				{
-					subCategory: 'Changelog',
-					subCategoryLink: '/changelog'
-				},
-				{
-					subCategory: 'Terms',
-					subCategoryLink: '/terms'
-				}
+				// {
+				// 	subCategory: 'Changelog',
+				// 	subCategoryLink: '/changelog'
+				// },
+				// {
+				// 	subCategory: 'Terms',
+				// 	subCategoryLink: '/terms'
+				// }
 			]
 		},
 		{
-			category: 'About us',
+			category: 'Hacerca de nosotros',
 			subCategories: [
 				{
-					subCategory: 'About us',
+					subCategory: 'Nosotros',
 					subCategoryLink: '/'
-				},
-				{
-					subCategory: 'News',
-					subCategoryLink: '/blog'
-				},
-				{
-					subCategory: 'Careers',
-					subCategoryLink: '/blog'
 				}
+				// {
+				// 	subCategory: 'News',
+				// 	subCategoryLink: '/blog'
+				// },
+				// {
+				// 	subCategory: 'Careers',
+				// 	subCategoryLink: '/blog'
+				// }
 			]
 		},
 		{
-			category: 'Get in touch',
+			category: 'Póngase en contacto',
 			subCategories: [
 				{
-					subCategory: 'Contact',
+					subCategory: 'Contactenos',
 					subCategoryLink: '/contact'
 				},
 				{
-					subCategory: 'Support',
+					subCategory: 'Soporte',
 					subCategoryLink: '/contact'
 				},
 				{
-					subCategory: 'Join us',
+					subCategory: 'Únete a nosotros',
 					subCategoryLink: '/contact'
 				}
 			]
