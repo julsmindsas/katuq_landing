@@ -9,7 +9,7 @@ export interface Logo {
 
 export interface FooterAbout {
 	title: string
-	aboutText: string
+	aboutText?: string
 	logo: Logo
 }
 
@@ -36,8 +36,7 @@ export interface FooterData {
 export const footerNavigationData: FooterData = {
 	footerAbout: {
 		title: 'Katuq',
-		aboutText:
-			'Componentes accesibles, responsivos y hechos por expertos en React y HTML listos para usar en su sitio web o aplicación. Sólo tienes que copiarlos y pegarlos en tu proyecto CSS de Tailwind.',
+		// aboutText:'',
 		logo: {
 			src: '/logocompleto.png',
 			alt: 'The tailwind astro theme',
