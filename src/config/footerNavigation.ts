@@ -70,7 +70,7 @@ export const footerNavigationData: FooterData = {
 			]
 		},
 		{
-			category: 'Hacerca de nosotros',
+			category: 'Acerca de nosotros',
 			subCategories: [
 				{
 					subCategory: 'Nosotros',
