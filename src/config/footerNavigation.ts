@@ -100,6 +100,10 @@ export const footerNavigationData: FooterData = {
 				{
 					subCategory: 'Únete a nosotros',
 					subCategoryLink: '/contact'
+				},
+				{
+					subCategory: 'Whatsapp',
+					subCategoryLink: 'http://wa.me/573104082376'
 				}
 			]
 		}

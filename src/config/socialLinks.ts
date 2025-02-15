@@ -23,5 +23,10 @@ export const socialLinks: SocialLink[] = [
 		name: 'discord',
 		link: '/',
 		icon: 'discord-icon'
+	},
+	{
+		name: 'WhatsApp',
+		link: 'http://wa.me/573104082376',
+		icon: 'whatsapp'
 	}
 ]
