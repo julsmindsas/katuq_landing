@@ -19,7 +19,7 @@ import Switcher from './ModeSwitcher.astro'
 
 // Data
 import { navigationBarData } from '../../config/navigationBar'
-const {navItems, navActions,logoLarge } = navigationBarData
+const { navItems, navActions, logoLarge } = navigationBarData
 
 // Determine current path
 const path = new URL(Astro.request.url).pathname
@@ -28,11 +28,11 @@ function isActivePath(currentPath: string): boolean {
 }
 
 // Type assertion for navActions to ensure type safety
-// const savedNavActions = navActions.map((action) => ({
-// 	...action,
-// 	size: action.size as 'base' | 'lg' | 'sm',
-// 	style: action.style as 'primary' | 'secondary' | 'neutral'
-// }))
+const savedNavActions = navActions.map((action) => ({
+	...action,
+	size: action.size as 'base' | 'lg' | 'sm',
+	style: action.style as 'primary' | 'secondary' | 'neutral'
+}))
 ---
 
 <header class="header">
@@ -104,15 +104,28 @@ function isActivePath(currentPath: string): boolean {
 			<!-- <Switcher /> -->
 
 			<!-- Navigation action buttons -->
-			<!-- <div class="header__actions">
-				 {
-					savedNavActions.map((action) => (
-						<Button classes="flex-auto" size={action.size} style={action.style} modal="signup">
-							{action.name}
-						</Button>
-					))
-				} 
-			</div> -->
+			<div class="header__actions">
+				{
+					savedNavActions.map((action) =>
+						action.name === 'Registrate' ? (
+							<a href="https://sellercenter.katuq.com/nuevo-registro">
+								<Button classes="flex-auto" size={action.size} style={action.style}>
+									{action.name}
+								</Button>
+							</a>
+						) : (
+							<Button
+								classes="flex-auto"
+								size={action.size}
+								style={action.style}
+								modal="signup"
+							>
+								{action.name}
+							</Button>
+						)
+					)
+				}
+			</div>
 		</nav>
 	</div>
 </header>
