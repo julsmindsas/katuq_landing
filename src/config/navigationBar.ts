@@ -59,5 +59,7 @@ export const navigationBarData: NavData = {
 		// },
 		{ name: 'Contactenos', link: '/contact' }
 	],
-	navActions: [{ name: 'Registrate', link: '/', style: 'primary', size: 'lg' }]
+	navActions: [{ name: 'Registrate', link: '/', style: 'primary', size: 'lg' },
+	{ name: 'Login', link: '/', style: 'primary', size: 'lg' }
+	]
 }

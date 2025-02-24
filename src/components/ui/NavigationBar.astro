@@ -113,6 +113,18 @@ const savedNavActions = navActions.map((action) => ({
 									{action.name}
 								</Button>
 							</a>
+						) : action.name === 'Login' ? (
+							<a href="https://sellercenter.katuq.com/login">
+								<Button classes="flex-auto" size={action.size} style={action.style}>
+									{action.name}
+								</Button>
+							</a>
+						) : action.name === 'Contact' ? (
+							<a href="https://sellercenter.katuq.com/contact">
+								<Button classes="flex-auto" size={action.size} style={action.style}>
+									{action.name}
+								</Button>
+							</a>
 						) : (
 							<Button
 								classes="flex-auto"

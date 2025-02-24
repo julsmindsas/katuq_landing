@@ -2,19 +2,29 @@
 	{
 		"header": {
 			"title": "Completo",
-			"subtitle": "Ideal for pymes.",
-			"currency": "$",
-			"price": "507",
-			"priceLabel": "month, billed anually",
-			"priceMontly": "47",
-			"priceLabelMontly": "month",
-			"buttonName": "Try for free",
-			"buttonLink": "/"
+			"subtitle": "Ideal para pymes.",
+			"currency": "USD $",
+			"price": "77",
+			"priceLabel": "mensual",
+			"priceMontly": "77",
+			"priceLabelMontly": "mensual",
+			"buttonName": "Prueba gratis por 15 dias",
+			"buttonLink": "https://sellercenter.katuq.com/nuevo-registro"
 		},
 		"body": {
 			"listItems": [
-				{ "listItem": "You will be able to manage all your orders in one place" },
-				{ "listItem": "You'll have multiple integrations with existing systems." }
+				{
+					"listItem": "Usuarios ilimitados"
+				},
+				{
+					"listItem": "Clientes ilimitados"
+				},
+				{
+					"listItem": "Pedidos ilimitados"
+				},
+				{
+					"listItem": "Configuraciones ilimitados"
+				}
 			]
 		},
 		"footer": {
@@ -27,18 +37,28 @@
 		"header": {
 			"title": "Por consumo",
 			"subtitle": "Ideal para pymes que estan empezando",
-			"currency": "$",
-			"price": "291",
-			"priceLabel": "month, billed anually",
-			"priceMontly": "27",
+			"currency": "USD $",
+			"price": "47",
+			"priceLabel": "Mensual + 1% Comisión por venta",
+			"priceMontly": "47",
 			"priceLabelMontly": "month",
-			"buttonName": "Try for free",
-			"buttonLink": "/"
+			"buttonName": "Prueba gratis por 15 dias",
+			"buttonLink": "https://sellercenter.katuq.com/nuevo-registro"
 		},
 		"body": {
 			"listItems": [
-				{ "listItem": "You will be able to manage all your orders in one place" },
-				{ "listItem": "You'll have multiple integrations with existing systems." }
+				{
+					"listItem": "Usuarios ilimitados"
+				},
+				{
+					"listItem": "Clientes ilimitados"
+				},
+				{
+					"listItem": "Pedidos ilimitados"
+				},
+				{
+					"listItem": "Configuraciones ilimitados"
+				}
 			]
 		},
 		"footer": {
@@ -51,18 +71,28 @@
 		"header": {
 			"title": "Tarifa variable",
 			"subtitle": "Ideal for pymes",
-			"currency": "$",
-			"price": "2,99%",
-			"priceLabel": "month, billed anually",
+			"currency": "",
+			"price": "2,99 %",
+			"priceLabel": "Comisión por venta",
 			"priceMontly": "65",
 			"priceLabelMontly": "month",
-			"buttonName": "Try for free",
-			"buttonLink": "/"
+			"buttonName": "Prueba gratis por 15 dias",
+			"buttonLink": "https://sellercenter.katuq.com/nuevo-registro"
 		},
 		"body": {
 			"listItems": [
-				{ "listItem": "You will be able to manage all your orders in one place" },
-				{ "listItem": "You'll have multiple integrations with existing systems." }
+				{
+					"listItem": "Usuarios ilimitados"
+				},
+				{
+					"listItem": "Clientes ilimitados"
+				},
+				{
+					"listItem": "Pedidos ilimitados"
+				},
+				{
+					"listItem": "Configuraciones ilimitados"
+				}
 			]
 		},
 		"footer": {
