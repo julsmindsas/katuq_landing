@@ -1,0 +1,19 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - UI
+import ScheduleConsultation from '../components/blocks/consultation/ScheduleConsultation.astro'
+
+// Content
+// - SEO
+const SEO = {
+	title: 'Katuq | Realiza tus consultas',
+	description:
+		'Estamos aquí para ayudarte. Realiza tus consultas a través de nuestro formulario y nos pondremos en contacto contigo lo antes posible.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<ScheduleConsultation id="schedule-consultation" />
+</Layout>

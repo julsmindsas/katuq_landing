@@ -99,7 +99,7 @@ export const footerNavigationData: FooterData = {
 				},
 				{
 					subCategory: 'Únete a nosotros',
-					subCategoryLink: '/contact'
+					subCategoryLink: '/SheduleConsultation'
 				},
 				{
 					subCategory: 'Whatsapp',

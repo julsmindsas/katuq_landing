@@ -31,6 +31,9 @@ const { title, description, ogImage, noindex } = Astro.props
 <!doctype html>
 <html lang="en" class="scroll-animation  dark mode-dark">
 	<Header title={title} description={description} ogImage={ogImage} noindex={noindex} />
+	<head>
+		<!-- El script de Google API se cargará dinámicamente en ScheduleConsultation.astro -->
+	</head>
 	<body
 		class:list={[
 			'scroll-animation',

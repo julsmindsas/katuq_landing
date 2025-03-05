@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import fetch from 'node-fetch';
 
 // Función simple de validación (mejorable según necesidades)
 function isValid(value) {
@@ -37,7 +38,28 @@ export async function post({ request }) {
     text: `Email: ${email}\nTeléfono: ${phone}\n\nMensaje:\n${message}`
   };
 
+  // Datos a enviar a la API externa
+  const data = {
+    firstName,
+    lastName,
+    email,
+    phone,
+    message
+  };
+
   try {
+    const response = await fetch('https://api.katuq.com/v1/landing/contacts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error en la solicitud: ${response.statusText}`);
+    }
+
     await transporter.sendMail(mailOptions);
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (error) {

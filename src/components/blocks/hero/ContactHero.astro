@@ -10,6 +10,7 @@ import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 // - UI
 import Form from '../contact/BasicForm.astro'
+import Button from '../../ui/Button.astro'
 
 // Props
 type Props = {
@@ -28,6 +29,9 @@ const { id, title, text, classes } = Astro.props
 				<h1 set:html={title} />
 				<p class="text-lg leading-relaxed">{text}</p>
 			</header>
+			<a href="/consultas">
+				<Button style="primary" type="button">Agendar consultoría</Button>
+			</a>
 		</Col>
 		<Col span="6" classes="relative">
 			<Form classes="max-w-xl" />

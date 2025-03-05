@@ -1,0 +1,125 @@
+---
+// Components
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Card from '../../ui/cards/partials/Card.astro'
+import CardBody from '../../ui/cards/partials/CardBody.astro'
+import Button from '../../ui/Button.astro'
+
+// Props
+type Props = {
+    id?: string
+    title?: string
+    text?: string
+    classes?: string
+}
+const { id, title, text, classes } = Astro.props
+
+// Establecer valores predeterminados
+let selectedDate = new Date().toISOString().split('T')[0] 
+let selectedTime = '09:00' 
+---
+
+<Section id={id} classes={classes}>
+    <Row>
+        <Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4">Agendar Consultoría</h2>
+            <p class="text-lg leading-relaxed mb-8">Seleccione el día y la hora para agendar una consultoría con nosotros.</p>
+        </Col>
+    </Row>
+    <Row>
+        <Col span="12" classes="relative">
+            <Card classes="max-w-xl mx-auto shadow-lg">
+                <CardBody>
+                    <form id="schedule-form" onsubmit="handleSubmit(event)">
+                        <h2 class="text-2xl font-semibold mb-6">Seleccione la fecha y hora</h2>
+                        <div class="mb-4">
+                            <label for="date" class="block text-sm font-medium text-gray-700 mb-2">Fecha</label>
+                            <input type="date" id="date" name="date" value={selectedDate} class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
+                        </div>
+                        <div class="mb-4">
+                            <label for="time" class="block text-sm font-medium text-gray-700 mb-2">Hora</label>
+                            <input type="time" id="time" name="time" value={selectedTime} class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
+                        </div>
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
+                        </div>
+                        <Button style="primary" type="submit" classes="w-full py-2">Agendar</Button>
+                    </form>
+                </CardBody>
+            </Card>
+        </Col>
+    </Row>
+</Section>
+
+<script>
+    declare const gapi: any;
+
+    function loadGapi(): Promise<void> {
+        return new Promise((resolve) => {
+            const script = document.createElement('script')
+            script.src = 'https://apis.google.com/js/api.js'
+            script.onload = () => resolve()
+            document.head.appendChild(script)
+        })
+    }
+
+    async function handleSubmit(event: Event): Promise<void> {
+        event.preventDefault()
+        const form = event.target as HTMLFormElement
+        const data = {
+            date: form.date.value,
+            time: form.time.value,
+            name: form.name.value
+        }
+        const eventDetails = {
+            summary: 'Consultoría Katuq',
+            description: `Nombre: ${data.name}`,
+            start: {
+                dateTime: `${data.date}T${data.time}:00`,
+                timeZone: 'America/Los_Angeles'
+            },
+            end: {
+                dateTime: `${data.date}T${data.time}:00`,
+                timeZone: 'America/Los_Angeles'
+            }
+        }
+        try {
+            await gapi.client.calendar.events.insert({
+                calendarId: 'primary',
+                resource: eventDetails
+            })
+            await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            alert('Consulta agendada con éxito y correo enviado')
+        } catch (error) {
+            alert('Error al agendar la consulta o enviar el correo')
+        }
+    }
+
+    async function initClient(): Promise<void> {
+        await loadGapi()
+        gapi.load('client:auth2', async () => {
+            await gapi.client.init({
+                apiKey: 'YOUR_API_KEY',
+                clientId: 'YOUR_CLIENT_ID',
+                discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
+                scope: 'https://www.googleapis.com/auth/calendar.events'
+            })
+            gapi.auth2.getAuthInstance().signIn()
+        })
+    }
+
+    initClient()
+</script>
+
+<style>
+    /* Agrega estilos personalizados aquí */
+</style>
