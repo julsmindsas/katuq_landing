@@ -107,12 +107,14 @@ const savedNavActions = navActions.map((action) => ({
 			<div class="header__actions">
 				{
 					savedNavActions.map((action) =>
-						action.name === 'Registrate' ? (
-							<a href="https://sellercenter.katuq.com/nuevo-registro">
+						action.name === 'Registrate' /* (
+						 <a href="https://sellercenter.katuq.com/nuevo-registro">
 								<Button classes="flex-auto" size={action.size} style={action.style}>
 									{action.name}
 								</Button>
 							</a>
+						)*/ ? (
+							''
 						) : action.name === 'Login' ? (
 							<a href="https://sellercenter.katuq.com/login">
 								<Button classes="flex-auto" size={action.size} style={action.style}>
@@ -126,12 +128,7 @@ const savedNavActions = navActions.map((action) => ({
 								</Button>
 							</a>
 						) : (
-							<Button
-								classes="flex-auto"
-								size={action.size}
-								style={action.style}
-								modal="signup"
-							>
+							<Button classes="flex-auto" size={action.size} style={action.style} modal="signup">
 								{action.name}
 							</Button>
 						)
