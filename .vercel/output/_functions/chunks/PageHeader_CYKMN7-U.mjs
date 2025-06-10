@@ -1,6 +1,6 @@
 import { c as createAstro, a as createComponent, r as renderTemplate, e as renderComponent } from './astro/server_DxIRt11M.mjs';
 import 'kleur/colors';
-import { a as $$Row, b as $$Col, c as $$Section } from './Col_C_37dWaI.mjs';
+import { a as $$Row, b as $$Col, c as $$Section } from './Col_B--YWaUZ.mjs';
 import { $ as $$Image } from './_astro_assets_rrntVZgH.mjs';
 /* empty css                         */
 

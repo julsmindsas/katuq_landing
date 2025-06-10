@@ -1,6 +1,6 @@
 import { c as createAstro, a as createComponent, r as renderTemplate, e as renderComponent, m as maybeRenderHead, d as renderSlot } from './astro/server_DxIRt11M.mjs';
 import 'kleur/colors';
-import { a as $$Row, b as $$Col, c as $$Section } from './Col_C_37dWaI.mjs';
+import { a as $$Row, b as $$Col, c as $$Section } from './Col_B--YWaUZ.mjs';
 /* empty css                       */
 
 const $$Astro = createAstro("https://astro-theme-one.vercel.app/");

@@ -1,7 +1,7 @@
 /* empty css                                  */
 import { c as createAstro, a as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, e as renderComponent } from '../chunks/astro/server_DxIRt11M.mjs';
 import 'kleur/colors';
-import { c as $$Section, a as $$Row, b as $$Col, e as $$Button, $ as $$Icon, d as $$Layout } from '../chunks/Col_C_37dWaI.mjs';
+import { c as $$Section, a as $$Row, b as $$Col, e as $$Button, $ as $$Icon, d as $$Layout } from '../chunks/Col_B--YWaUZ.mjs';
 import 'clsx';
 export { renderers } from '../renderers.mjs';
 

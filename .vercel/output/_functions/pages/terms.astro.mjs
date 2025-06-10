@@ -1,9 +1,9 @@
 /* empty css                                  */
 import { a as createComponent, r as renderTemplate, e as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_DxIRt11M.mjs';
 import 'kleur/colors';
-import { d as $$Layout } from '../chunks/Col_C_37dWaI.mjs';
-import { $ as $$StickySidebar } from '../chunks/StickySidebar_BGwkEStr.mjs';
-import { $ as $$PageHeader } from '../chunks/PageHeader_CO_USJuN.mjs';
+import { d as $$Layout } from '../chunks/Col_B--YWaUZ.mjs';
+import { $ as $$StickySidebar } from '../chunks/StickySidebar_DkDVsDoN.mjs';
+import { $ as $$PageHeader } from '../chunks/PageHeader_CYKMN7-U.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Terms = createComponent(($$result, $$props, $$slots) => {

@@ -1,13 +1,13 @@
 /* empty css                                  */
 import { c as createAstro, a as createComponent, r as renderTemplate, e as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_DxIRt11M.mjs';
 import 'kleur/colors';
-import { d as $$Layout } from '../chunks/Col_C_37dWaI.mjs';
-import { $ as $$PageHeader } from '../chunks/PageHeader_CO_USJuN.mjs';
-import { $ as $$StickySidebar } from '../chunks/StickySidebar_BGwkEStr.mjs';
-import { $ as $$Accordion } from '../chunks/Accordion_C7HKidxr.mjs';
+import { d as $$Layout } from '../chunks/Col_B--YWaUZ.mjs';
+import { $ as $$PageHeader } from '../chunks/PageHeader_CYKMN7-U.mjs';
+import { $ as $$StickySidebar } from '../chunks/StickySidebar_DkDVsDoN.mjs';
+import { $ as $$Accordion } from '../chunks/Accordion_pwqV6k6F.mjs';
 import { $ as $$Card } from '../chunks/Card_Dhq6N92R.mjs';
-import { $ as $$TextImage } from '../chunks/TextImage_DWT26nBL.mjs';
-import { $ as $$BasicDark } from '../chunks/BasicDark_BHuZhkU1.mjs';
+import { $ as $$TextImage } from '../chunks/TextImage_DLs0H09H.mjs';
+import { $ as $$BasicDark } from '../chunks/BasicDark_DCCBuybE.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro("https://astro-theme-one.vercel.app/");

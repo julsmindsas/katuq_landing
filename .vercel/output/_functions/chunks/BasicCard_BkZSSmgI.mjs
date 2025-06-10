@@ -1,7 +1,7 @@
 import { c as createAstro, a as createComponent, r as renderTemplate, e as renderComponent, m as maybeRenderHead } from './astro/server_DxIRt11M.mjs';
 import 'kleur/colors';
 import { $ as $$Image } from './_astro_assets_rrntVZgH.mjs';
-import { $ as $$Icon } from './Col_C_37dWaI.mjs';
+import { $ as $$Icon } from './Col_B--YWaUZ.mjs';
 import { $ as $$Card } from './Card_Dhq6N92R.mjs';
 
 const $$Astro = createAstro("https://astro-theme-one.vercel.app/");

@@ -1,9 +1,9 @@
 /* empty css                                     */
 import { a as createComponent, r as renderTemplate, e as renderComponent } from '../../chunks/astro/server_DxIRt11M.mjs';
 import 'kleur/colors';
-import { d as $$Layout } from '../../chunks/Col_C_37dWaI.mjs';
-import { $ as $$PageHeader } from '../../chunks/PageHeader_CO_USJuN.mjs';
-import { $ as $$BlogPosts } from '../../chunks/BlogPosts_D-ATcn6k.mjs';
+import { d as $$Layout } from '../../chunks/Col_B--YWaUZ.mjs';
+import { $ as $$PageHeader } from '../../chunks/PageHeader_CYKMN7-U.mjs';
+import { $ as $$BlogPosts } from '../../chunks/BlogPosts_DzAVn-5H.mjs';
 import { g as getCollection } from '../../chunks/_astro_content_B3cUVTtK.mjs';
 export { renderers } from '../../renderers.mjs';
 

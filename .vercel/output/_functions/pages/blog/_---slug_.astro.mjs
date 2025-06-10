@@ -1,7 +1,7 @@
 /* empty css                                     */
 import { c as createAstro, a as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, e as renderComponent, d as renderSlot } from '../../chunks/astro/server_DxIRt11M.mjs';
 import 'kleur/colors';
-import { $ as $$Icon, a as $$Row, b as $$Col, c as $$Section, d as $$Layout } from '../../chunks/Col_C_37dWaI.mjs';
+import { $ as $$Icon, a as $$Row, b as $$Col, c as $$Section, d as $$Layout } from '../../chunks/Col_B--YWaUZ.mjs';
 import { $ as $$Badge, g as getCollection } from '../../chunks/_astro_content_B3cUVTtK.mjs';
 /* empty css                                     */
 export { renderers } from '../../renderers.mjs';

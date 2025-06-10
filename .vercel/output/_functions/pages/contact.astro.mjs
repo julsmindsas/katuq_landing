@@ -1,12 +1,12 @@
 /* empty css                                  */
 import { c as createAstro, a as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, e as renderComponent, f as renderScript, u as unescapeHTML, k as defineScriptVars } from '../chunks/astro/server_DxIRt11M.mjs';
 import 'kleur/colors';
-import { $ as $$Icon, f as $$Form, g as $$FormField, h as $$InputField, e as $$Button, a as $$Row, b as $$Col, c as $$Section, i as appointmentConfig, d as $$Layout } from '../chunks/Col_C_37dWaI.mjs';
+import { $ as $$Icon, f as $$Form, g as $$FormField, h as $$InputField, e as $$Button, a as $$Row, b as $$Col, c as $$Section, i as appointmentConfig, d as $$Layout } from '../chunks/Col_B--YWaUZ.mjs';
 import { $ as $$Card } from '../chunks/Card_Dhq6N92R.mjs';
 import { $ as $$CardBody } from '../chunks/CardBody_grAxSwyi.mjs';
 /* empty css                                   */
 import 'clsx';
-import { $ as $$BasicCard } from '../chunks/BasicCard_Dc2PVnvi.mjs';
+import { $ as $$BasicCard } from '../chunks/BasicCard_BkZSSmgI.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro$4 = createAstro("https://astro-theme-one.vercel.app/");

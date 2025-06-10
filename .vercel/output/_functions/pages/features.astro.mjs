@@ -1,11 +1,11 @@
 /* empty css                                  */
 import { c as createAstro, a as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, e as renderComponent, d as renderSlot } from '../chunks/astro/server_DxIRt11M.mjs';
 import 'kleur/colors';
-import { $ as $$Icon, a as $$Row, b as $$Col, d as $$Layout } from '../chunks/Col_C_37dWaI.mjs';
-import { $ as $$StickySidebar } from '../chunks/StickySidebar_BGwkEStr.mjs';
+import { $ as $$Icon, a as $$Row, b as $$Col, d as $$Layout } from '../chunks/Col_B--YWaUZ.mjs';
+import { $ as $$StickySidebar } from '../chunks/StickySidebar_DkDVsDoN.mjs';
 /* empty css                                    */
-import { $ as $$PageHeader } from '../chunks/PageHeader_CO_USJuN.mjs';
-import { $ as $$BasicDark } from '../chunks/BasicDark_BHuZhkU1.mjs';
+import { $ as $$PageHeader } from '../chunks/PageHeader_CYKMN7-U.mjs';
+import { $ as $$BasicDark } from '../chunks/BasicDark_DCCBuybE.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro$1 = createAstro("https://astro-theme-one.vercel.app/");

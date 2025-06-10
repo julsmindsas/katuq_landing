@@ -1,6 +1,6 @@
 import { c as createAstro, a as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, d as renderSlot, e as renderComponent } from './astro/server_DxIRt11M.mjs';
 import 'kleur/colors';
-import { a as $$Row, b as $$Col, e as $$Button, c as $$Section } from './Col_C_37dWaI.mjs';
+import { a as $$Row, b as $$Col, e as $$Button, c as $$Section } from './Col_B--YWaUZ.mjs';
 import { $ as $$CTA } from './CTA_BHrMOHSh.mjs';
 import 'clsx';
 /* empty css                       */

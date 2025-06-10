@@ -1,7 +1,7 @@
 /* empty css                                  */
 import { c as createAstro, a as createComponent, r as renderTemplate, e as renderComponent, f as renderScript, m as maybeRenderHead, b as addAttribute } from '../chunks/astro/server_DxIRt11M.mjs';
 import 'kleur/colors';
-import { a as $$Row, b as $$Col, e as $$Button, c as $$Section, d as $$Layout } from '../chunks/Col_C_37dWaI.mjs';
+import { a as $$Row, b as $$Col, e as $$Button, c as $$Section, d as $$Layout } from '../chunks/Col_B--YWaUZ.mjs';
 import { $ as $$Card } from '../chunks/Card_Dhq6N92R.mjs';
 import { $ as $$CardBody } from '../chunks/CardBody_grAxSwyi.mjs';
 export { renderers } from '../renderers.mjs';
