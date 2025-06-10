@@ -1,0 +1,183 @@
+---
+// Simple Demo Booking Component
+// ------------
+// Description: Simple component for booking demo appointments using Google Calendar button
+// Properties:
+// - appointmentUrl: Your Google Calendar appointment scheduling URL
+// - buttonColor: Color for the booking button
+// - buttonText: Text for the booking button
+// - classes: Additional classes
+// ------------
+
+// Components
+import Card from '../../ui/cards/partials/Card.astro'
+import CardBody from '../../ui/cards/partials/CardBody.astro'
+
+// Config
+import { appointmentConfig } from '../../../config/config'
+
+// Props
+type Props = {
+	appointmentUrl?: string
+	buttonColor?: string
+	buttonText?: string
+	classes?: string
+}
+
+const { 
+	appointmentUrl = appointmentConfig.demoBookingUrl,
+	buttonColor = appointmentConfig.buttonColor,
+	buttonText = appointmentConfig.buttonText,
+	classes 
+} = Astro.props
+---
+
+<Card classes={classes}>
+	<CardBody>
+		<div class="text-center space-y-6">
+			<div class="space-y-4">
+				<div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full mb-4">
+					<svg class="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+					</svg>
+				</div>
+				
+				<h2 class="text-3xl font-bold text-neutral-900 dark:text-white">
+					Agenda tu Demo de Katuq
+				</h2>
+				
+				<p class="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+					Descubre cómo nuestras soluciones de IA pueden transformar tu negocio. 
+					Agenda una demo personalizada de 30 minutos con nuestro equipo.
+				</p>
+			</div>
+
+			<!-- Google Calendar Appointment Button -->
+			<div id="google-appointment-button" class="my-8">
+				<!-- Button will be inserted here by Google's script -->
+			</div>
+
+			<!-- Fallback button -->
+			<div id="fallback-demo-button" class="hidden">
+				<a 
+					href={appointmentUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 transform hover:scale-105"
+				>
+					<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+					</svg>
+					{buttonText}
+				</a>
+			</div>
+
+			<!-- What to expect -->
+			<div class="bg-neutral-50 dark:bg-neutral-800 rounded-lg p-6 space-y-4">
+				<h3 class="text-xl font-semibold text-neutral-900 dark:text-white">
+					¿Qué esperar en la demo?
+				</h3>
+				<div class="grid md:grid-cols-2 gap-4 text-left">
+					<div class="flex items-start space-x-3">
+						<svg class="w-5 h-5 text-green-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+						</svg>
+						<span class="text-neutral-700 dark:text-neutral-300">Análisis de tus necesidades específicas</span>
+					</div>
+					<div class="flex items-start space-x-3">
+						<svg class="w-5 h-5 text-green-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+						</svg>
+						<span class="text-neutral-700 dark:text-neutral-300">Demo en vivo de nuestras funcionalidades</span>
+					</div>
+					<div class="flex items-start space-x-3">
+						<svg class="w-5 h-5 text-green-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+						</svg>
+						<span class="text-neutral-700 dark:text-neutral-300">Propuesta personalizada de implementación</span>
+					</div>
+					<div class="flex items-start space-x-3">
+						<svg class="w-5 h-5 text-green-500 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+						</svg>
+						<span class="text-neutral-700 dark:text-neutral-300">Sesión de preguntas y respuestas</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</CardBody>
+</Card>
+
+<!-- Google Calendar Appointment Scheduling Script -->
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
+<script define:vars={{ appointmentUrl, buttonColor, buttonText }}>
+let fallbackShown = false;
+
+document.addEventListener('DOMContentLoaded', function() {
+	// Check if Google Calendar script is loaded and we have a valid URL
+	if (typeof calendar !== 'undefined' && calendar.schedulingButton && appointmentUrl !== 'YOUR_GOOGLE_CALENDAR_APPOINTMENT_URL') {
+		try {
+			calendar.schedulingButton.load({
+				url: appointmentUrl,
+				color: buttonColor,
+				label: buttonText,
+				target: document.getElementById('google-appointment-button')
+			});
+			// Wait a bit to see if the button loaded successfully
+			setTimeout(checkIfButtonLoaded, 1000);
+		} catch (error) {
+			console.error('Error loading Google Calendar button:', error);
+			showFallbackButton();
+		}
+	} else {
+		// Show fallback button if Google script fails to load or no URL configured
+		setTimeout(showFallbackButton, 2000);
+	}
+});
+
+function checkIfButtonLoaded() {
+	const googleButton = document.getElementById('google-appointment-button');
+	if (googleButton && googleButton.children.length === 0 && !fallbackShown) {
+		// Google Calendar button didn't load, show fallback
+		setTimeout(showFallbackButton, 2000);
+	}
+}
+
+function showFallbackButton() {
+	if (fallbackShown) return; // Prevent multiple calls
+	
+	const googleButton = document.getElementById('google-appointment-button');
+	const fallbackButton = document.getElementById('fallback-demo-button');
+	
+	if (googleButton && fallbackButton) {
+		googleButton.style.display = 'none';
+		fallbackButton.classList.remove('hidden');
+		fallbackShown = true;
+	}
+}
+</script>
+
+<style>
+/* Style the Google Calendar button container */
+#google-appointment-button {
+	min-height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Loading state */
+#google-appointment-button:empty::before {
+	content: "Cargando calendario...";
+	color: #64748b;
+	font-size: 16px;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.5; }
+}
+</style>

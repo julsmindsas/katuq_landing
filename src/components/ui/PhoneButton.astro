@@ -1,0 +1,146 @@
+---
+// Phone Call Floating Button
+// ------------
+// Description: A floating phone button that appears on all pages
+// Properties:
+// - phoneNumber: The phone number to call (required)
+// - position: Position of the button (optional)
+// - classes: Additional classes
+// ------------
+
+// Props
+type Props = {
+	phoneNumber: string
+	position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left'
+	classes?: string
+}
+
+const { 
+	phoneNumber,
+	position = 'bottom-right',
+	classes 
+} = Astro.props
+
+// Generate phone URL
+const phoneUrl = `tel:${phoneNumber}`
+
+// Position classes
+const positionClasses = {
+	'bottom-right': 'bottom-6 right-6',
+	'bottom-left': 'bottom-6 left-6',
+	'top-right': 'top-6 right-6',
+	'top-left': 'top-6 left-6'
+}
+---
+
+<div 
+	id="phone-button" 
+	class:list={[
+		'fixed z-50 group',
+		positionClasses[position],
+		{ [`${classes}`]: classes }
+	]}
+>
+	<a 
+		href={phoneUrl}
+		class="flex items-center justify-center w-12 h-12 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+		aria-label="Llamar a Katuq"
+		id="phone-link"
+	>
+		<!-- Phone SVG Icon -->
+		<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+			<path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+		</svg>
+	</a>
+	
+	<!-- Tooltip -->
+	<div class="absolute bottom-14 right-0 mb-2 hidden group-hover:block animate-fade-in">
+		<div class="bg-neutral-800 text-white text-sm rounded-lg py-2 px-3 whitespace-nowrap shadow-lg">
+			<span>¡Llámanos directamente!</span>
+			<div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-neutral-800"></div>
+		</div>
+	</div>
+</div>
+
+<style>
+	/* Animations */
+	@keyframes fade-in {
+		0% {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.animate-fade-in {
+		animation: fade-in 0.3s ease-out;
+	}
+
+	/* Pulsing animation for the button */
+	@keyframes pulsing {
+		0%, 100% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.05);
+		}
+	}
+
+	#phone-button {
+		animation: pulsing 3s ease-in-out infinite;
+		animation-delay: 1.5s; /* Delay to alternate with WhatsApp button */
+	}
+
+	#phone-button:hover {
+		animation: none;
+	}
+
+	/* Additional responsive adjustments */
+	@media (max-width: 768px) {
+		#phone-button {
+			bottom: 1rem;
+			right: 1rem;
+		}
+		
+		#phone-button a {
+			width: 3rem;
+			height: 3rem;
+		}
+		
+		#phone-button .tooltip {
+			display: none;
+		}
+	}
+
+	/* Dark mode adjustments */
+	.dark #phone-button .bg-neutral-800 {
+		background-color: rgb(38 38 38);
+	}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	const phoneButton = document.getElementById('phone-button');
+	const phoneLink = document.getElementById('phone-link');
+	
+	if (!phoneButton || !phoneLink) return;
+
+	// Track clicks for analytics (optional)
+	phoneLink.addEventListener('click', function() {
+		// You can add analytics tracking here
+		console.log('Phone button clicked');
+		
+		// Optional: Send event to Google Analytics if available
+		if (typeof gtag !== 'undefined') {
+			gtag('event', 'click', {
+				event_category: 'engagement',
+				event_label: 'phone_button',
+				value: 1
+			});
+		}
+	});
+});
+</script>

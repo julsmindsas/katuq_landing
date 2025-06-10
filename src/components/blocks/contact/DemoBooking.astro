@@ -1,0 +1,189 @@
+---
+// Demo Booking Component
+// ------------
+// Description: Component for booking demo appointments using Google Calendar
+// Properties:
+// - appointmentUrl: Your Google Calendar appointment scheduling URL
+// - buttonText: Text for the booking button
+// - title: Section title
+// - description: Section description
+// - classes: Additional classes
+// ------------
+
+// Components
+import Card from '../../ui/cards/partials/Card.astro'
+import CardBody from '../../ui/cards/partials/CardBody.astro'
+import Button from '../../ui/Button.astro'
+
+// Props
+type Props = {
+	appointmentUrl?: string
+	buttonText?: string
+	title?: string
+	description?: string
+	classes?: string
+}
+
+const { 
+	appointmentUrl = "YOUR_GOOGLE_CALENDAR_APPOINTMENT_URL",
+	buttonText = "Agendar Demo",
+	title = "Agenda una Demo Personalizada",
+	description = "Descubre cómo Katuq puede transformar tu negocio. Agenda una demo personalizada y gratuita con nuestro equipo de expertos.",
+	classes 
+} = Astro.props
+---
+
+<Card classes={classes}>
+	<CardBody>
+		<div class="text-center space-y-6">
+			<div class="space-y-3">
+				<h2 class="text-3xl font-bold text-neutral-900 dark:text-white">
+					{title}
+				</h2>
+				<p class="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+					{description}
+				</p>
+			</div>
+
+			<!-- Google Calendar Appointment Scheduling Widget -->
+			<div class="space-y-4">
+				<div id="google-calendar-appointment" class="min-h-[400px] border border-neutral-200 dark:border-neutral-700 rounded-lg overflow-hidden">
+					<!-- Calendar will be embedded here -->
+				</div>
+				
+				<!-- Fallback button if widget doesn't load -->
+				<div id="fallback-button" class="hidden">
+					<a 
+						href={appointmentUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200"
+					>
+						{buttonText}
+					</a>
+				</div>
+			</div>
+
+			<!-- Benefits list -->
+			<div class="grid md:grid-cols-3 gap-4 pt-6">
+				<div class="text-center">
+					<div class="inline-flex items-center justify-center w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg mb-3">
+						<svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+					</div>
+					<h3 class="font-semibold text-neutral-900 dark:text-white">30 Minutos</h3>
+					<p class="text-sm text-neutral-600 dark:text-neutral-300">Demo completa personalizada</p>
+				</div>
+				<div class="text-center">
+					<div class="inline-flex items-center justify-center w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg mb-3">
+						<svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+					</div>
+					<h3 class="font-semibold text-neutral-900 dark:text-white">100% Gratuito</h3>
+					<p class="text-sm text-neutral-600 dark:text-neutral-300">Sin compromisos ni costos</p>
+				</div>
+				<div class="text-center">
+					<div class="inline-flex items-center justify-center w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg mb-3">
+						<svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-2-2V10a2 2 0 012-2h8z"></path>
+						</svg>
+					</div>
+					<h3 class="font-semibold text-neutral-900 dark:text-white">Asesoría Expert</h3>
+					<p class="text-sm text-neutral-600 dark:text-neutral-300">Consulta con especialistas</p>
+				</div>
+			</div>
+		</div>
+	</CardBody>
+</Card>
+
+<!-- Google Calendar Appointment Scheduling Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	// Replace with your actual Google Calendar appointment URL
+	const appointmentUrl = document.currentScript.previousElementSibling.querySelector('a')?.href || 'YOUR_GOOGLE_CALENDAR_APPOINTMENT_URL';
+	
+	// Check if we have a valid appointment URL
+	if (appointmentUrl && appointmentUrl !== 'YOUR_GOOGLE_CALENDAR_APPOINTMENT_URL') {
+		// Try to load Google Calendar appointment scheduling widget
+		loadGoogleCalendarWidget(appointmentUrl);
+	} else {
+		// Show fallback button if no URL is configured
+		showFallbackButton();
+	}
+});
+
+function loadGoogleCalendarWidget(url) {
+	try {
+		// Create iframe for Google Calendar appointment scheduling
+		const iframe = document.createElement('iframe');
+		iframe.src = url.replace('/u/0/', '/u/0/').includes('booking') ? url : url + '?embedded=true';
+		iframe.style.width = '100%';
+		iframe.style.height = '600px';
+		iframe.style.border = 'none';
+		iframe.style.borderRadius = '8px';
+		iframe.title = 'Agendar Demo - Katuq';
+		
+		const container = document.getElementById('google-calendar-appointment');
+		if (container) {
+			container.innerHTML = '';
+			container.appendChild(iframe);
+		}
+		
+		// Handle iframe load errors
+		iframe.addEventListener('error', function() {
+			showFallbackButton();
+		});
+		
+		// Timeout fallback
+		setTimeout(function() {
+			if (iframe.contentDocument && iframe.contentDocument.readyState !== 'complete') {
+				showFallbackButton();
+			}
+		}, 5000);
+		
+	} catch (error) {
+		console.error('Error loading Google Calendar widget:', error);
+		showFallbackButton();
+	}
+}
+
+function showFallbackButton() {
+	const fallbackButton = document.getElementById('fallback-button');
+	const calendarContainer = document.getElementById('google-calendar-appointment');
+	
+	if (fallbackButton && calendarContainer) {
+		calendarContainer.style.display = 'none';
+		fallbackButton.classList.remove('hidden');
+	}
+}
+</script>
+
+<style>
+/* Custom styles for the booking section */
+#google-calendar-appointment {
+	background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.dark #google-calendar-appointment {
+	background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+/* Loading animation */
+#google-calendar-appointment:empty::before {
+	content: "Cargando calendario...";
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 400px;
+	color: #64748b;
+	font-size: 16px;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.5; }
+}
+</style>

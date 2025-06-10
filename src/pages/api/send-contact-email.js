@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
-import fetch from 'node-fetch';
+
+export const prerender = false;
 
 // Función simple de validación (mejorable según necesidades)
 function isValid(value) {

@@ -34,3 +34,19 @@ export const configData: Config = {
 	mode: 'dark',
 	scrollAnimations: true
 }
+
+// Google Calendar Appointment Scheduling
+export const appointmentConfig = {
+	demoBookingUrl: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3Ha4_YfWOkb8PQUBRxuhcaFGxrgEDheIJQgZLlo7poujTrimqSLqEzT_jUCWVNA0i_yg4_FolX',
+	buttonColor: '#9b00ff',
+	buttonText: 'Agendar Demo Gratuita'
+}
+
+// Contact Buttons Configuration
+export const contactConfig = {
+	phoneNumber: '573104082376',
+	whatsappMessage: '¡Hola! Me interesa conocer más sobre Katuq 😊',
+	position: 'bottom-right' as const,
+	showWhatsApp: true,
+	showPhone: true
+}
