@@ -1,0 +1,211 @@
+---
+// ROI Calculator Lead Magnet
+// ------------
+// Description: Interactive ROI calculator to capture leads
+
+// Components
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+---
+
+<Section classes="bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-950 dark:to-primary-900">
+	<Row>
+		<Col span="12" align="center" classes="mb-8">
+			<h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-4">
+				Calcula tu ROI con Katuq
+			</h2>
+			<p class="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+				Descubre cuánto puedes ahorrar automatizando tus procesos. Calcula tu retorno de inversión en menos de 2 minutos.
+			</p>
+		</Col>
+	</Row>
+	<Row>
+		<Col span="2" />
+		<Col span="8">
+			<div class="roi-calculator">
+				<div class="calculator-inputs">
+					<div class="input-group">
+						<label for="monthly-orders">Pedidos mensuales</label>
+						<input type="number" id="monthly-orders" placeholder="ej. 500" min="1" />
+					</div>
+					<div class="input-group">
+						<label for="processing-time">Tiempo por pedido (minutos)</label>
+						<input type="number" id="processing-time" placeholder="ej. 15" min="1" />
+					</div>
+					<div class="input-group">
+						<label for="hourly-cost">Costo por hora (USD)</label>
+						<input type="number" id="hourly-cost" placeholder="ej. 12" min="1" />
+					</div>
+					<div class="input-group">
+						<label for="error-rate">% Errores actuales</label>
+						<input type="number" id="error-rate" placeholder="ej. 5" min="0" max="100" />
+					</div>
+				</div>
+				
+				<div class="calculator-results" id="results" style="display: none;">
+					<h3>Tu Potencial de Ahorro:</h3>
+					<div class="results-grid">
+						<div class="result-item">
+							<div class="result-number" id="monthly-savings">$0</div>
+							<div class="result-label">Ahorro Mensual</div>
+						</div>
+						<div class="result-item">
+							<div class="result-number" id="yearly-savings">$0</div>
+							<div class="result-label">Ahorro Anual</div>
+						</div>
+						<div class="result-item">
+							<div class="result-number" id="roi-months">0</div>
+							<div class="result-label">Meses para ROI</div>
+						</div>
+						<div class="result-item">
+							<div class="result-number" id="hours-saved">0</div>
+							<div class="result-label">Horas Ahorradas/Mes</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="calculator-actions">
+					<button class="calculate-btn" id="calculate">
+						Calcular mi ROI
+					</button>
+					<div class="lead-capture" id="lead-form" style="display: none;">
+						<form class="capture-form">
+							<h4>Recibe tu análisis detallado por email</h4>
+							<div class="form-row">
+								<input type="email" placeholder="Tu email empresarial" required />
+								<input type="text" placeholder="Nombre de tu empresa" required />
+							</div>
+							<Button size="lg" type="submit">Enviar Análisis Gratis</Button>
+							<p class="disclaimer">Recibirás tu análisis personalizado + guía de automatización gratuita</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</Col>
+		<Col span="2" />
+	</Row>
+</Section>
+
+<style>
+	.roi-calculator {
+		@apply bg-white dark:bg-neutral-900 rounded-2xl p-8 shadow-2xl border border-neutral-100 dark:border-neutral-800;
+	}
+	
+	.calculator-inputs {
+		@apply grid grid-cols-1 md:grid-cols-2 gap-6 mb-8;
+	}
+	
+	.input-group {
+		@apply flex flex-col gap-2;
+	}
+	
+	.input-group label {
+		@apply text-sm font-medium text-neutral-700 dark:text-neutral-300;
+	}
+	
+	.input-group input {
+		@apply px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white focus:border-primary-500 focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-800 outline-none transition-all;
+	}
+	
+	.calculator-results {
+		@apply mb-8 p-6 bg-primary-50 dark:bg-primary-950 rounded-xl border border-primary-200 dark:border-primary-800;
+	}
+	
+	.calculator-results h3 {
+		@apply text-xl font-bold text-neutral-900 dark:text-white mb-6 text-center;
+	}
+	
+	.results-grid {
+		@apply grid grid-cols-2 lg:grid-cols-4 gap-4;
+	}
+	
+	.result-item {
+		@apply text-center p-4;
+	}
+	
+	.result-number {
+		@apply text-2xl lg:text-3xl font-bold text-primary-600 dark:text-primary-400 mb-1;
+	}
+	
+	.result-label {
+		@apply text-xs text-neutral-600 dark:text-neutral-400 font-medium;
+	}
+	
+	.calculator-actions {
+		@apply text-center;
+	}
+	
+	.calculate-btn {
+		@apply bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-lg;
+	}
+	
+	.lead-capture {
+		@apply mt-8 p-6 bg-neutral-50 dark:bg-neutral-800 rounded-xl;
+	}
+	
+	.capture-form h4 {
+		@apply text-lg font-semibold text-neutral-900 dark:text-white mb-4 text-center;
+	}
+	
+	.form-row {
+		@apply grid grid-cols-1 md:grid-cols-2 gap-4 mb-4;
+	}
+	
+	.form-row input {
+		@apply px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-700 text-neutral-900 dark:text-white focus:border-primary-500 focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-800 outline-none;
+	}
+	
+	.disclaimer {
+		@apply text-xs text-neutral-500 dark:text-neutral-400 mt-3 text-center;
+	}
+</style>
+
+<script>
+	function calculateROI() {
+		const monthlyOrders = parseInt(document.getElementById('monthly-orders').value) || 0;
+		const processingTime = parseInt(document.getElementById('processing-time').value) || 0;
+		const hourlyCost = parseInt(document.getElementById('hourly-cost').value) || 0;
+		const errorRate = parseInt(document.getElementById('error-rate').value) || 0;
+		
+		if (monthlyOrders > 0 && processingTime > 0 && hourlyCost > 0) {
+			// Calculate current monthly cost
+			const currentHoursPerMonth = (monthlyOrders * processingTime) / 60;
+			const currentMonthlyCost = currentHoursPerMonth * hourlyCost;
+			
+			// Calculate savings with Katuq (assume 70% automation + 50% error reduction)
+			const automationSavings = currentMonthlyCost * 0.7;
+			const errorSavings = (currentMonthlyCost * (errorRate / 100)) * 0.5;
+			const totalMonthlySavings = automationSavings + errorSavings;
+			
+			const yearlySavings = totalMonthlySavings * 12;
+			const hoursKatuq = Math.round(currentHoursPerMonth * 0.3); // 70% reduction
+			const roiMonths = Math.ceil(1200 / totalMonthlySavings); // Assume $1200 monthly cost
+			
+			// Update results
+			document.getElementById('monthly-savings').textContent = `$${Math.round(totalMonthlySavings).toLocaleString()}`;
+			document.getElementById('yearly-savings').textContent = `$${Math.round(yearlySavings).toLocaleString()}`;
+			document.getElementById('roi-months').textContent = `${roiMonths}`;
+			document.getElementById('hours-saved').textContent = `${Math.round(currentHoursPerMonth - hoursKatuq)}`;
+			
+			// Show results and lead form
+			document.getElementById('results').style.display = 'block';
+			document.getElementById('lead-form').style.display = 'block';
+		}
+	}
+	
+	document.addEventListener('DOMContentLoaded', function() {
+		document.getElementById('calculate').addEventListener('click', calculateROI);
+		
+		// Auto-calculate on input change
+		const inputs = document.querySelectorAll('.input-group input');
+		inputs.forEach(input => {
+			input.addEventListener('input', () => {
+				if (document.getElementById('results').style.display === 'block') {
+					calculateROI();
+				}
+			});
+		});
+	});
+</script>

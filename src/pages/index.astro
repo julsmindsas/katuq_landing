@@ -11,6 +11,9 @@ import HighlightBlocks from '../components/blocks/highlights/HightlightRows.astr
 import CTA from '../components/blocks/CTA/BasicDark.astro'
 import SectionKatuq from '../components/ui/SectionKatuq.astro'
 import ContactHero from '../components/blocks/hero/ContactHero.astro'
+import CustomerLogos from '../components/blocks/socialproof/CustomerLogos.astro'
+import ROICalculator from '../components/blocks/lead-magnets/ROICalculator.astro'
+import ExitIntentPopup from '../components/blocks/lead-magnets/ExitIntentPopup.astro'
 
 // Content
 // - Testimonial background
@@ -25,7 +28,10 @@ const SEO = {
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero />
-	<Features />
+	<CustomerLogos />
+	<Features id="features" />
+	<ROICalculator />
 	<SectionKatuq bg={Katuq.src} />
 	<HighlightBlocks />
+	<ExitIntentPopup />
 </Layout>

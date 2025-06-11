@@ -23,12 +23,72 @@ type Props = {
 const { title , subtitle, image, link } = Astro.props
 ---
 
-<Card
-	title={title}
-	subtitle={subtitle}
-	titleSize="xl"
-	link={link}
-	image={image}
-	type="image-full"
-	classes="!bg-neutral-50 !shadow-none dark:!bg-neutral-900 h-full justify-between border border-neutral-100 dark:border-neutral-800"
-/>
+{
+	link ? (
+		<a href={link} class="feature-card-link">
+			<div class="feature-card">
+				{image && (
+					<div class="feature-image-container">
+						<img src={image.src} alt={title || "Feature"} class="feature-image" />
+					</div>
+				)}
+				{(title || subtitle) && (
+					<div class="feature-content">
+						{title && <h3 class="feature-title">{title}</h3>}
+						{subtitle && <p class="feature-subtitle">{subtitle}</p>}
+						<div class="feature-cta">Conocer más →</div>
+					</div>
+				)}
+			</div>
+		</a>
+	) : (
+		<div class="feature-card">
+			{image && (
+				<div class="feature-image-container">
+					<img src={image.src} alt={title || "Feature"} class="feature-image" />
+				</div>
+			)}
+			{(title || subtitle) && (
+				<div class="feature-content">
+					{title && <h3 class="feature-title">{title}</h3>}
+					{subtitle && <p class="feature-subtitle">{subtitle}</p>}
+					<div class="feature-cta">Conocer más →</div>
+				</div>
+			)}
+		</div>
+	)
+}
+
+<style>
+	.feature-card {
+		@apply flex flex-col h-full bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-lg overflow-hidden shadow-lg shadow-neutral-700/5 dark:shadow-neutral-950/50 transition-all duration-300 hover:shadow-xl hover:shadow-neutral-700/10 dark:hover:shadow-neutral-950/70;
+	}
+	
+	.feature-card-link {
+		@apply block h-full text-inherit no-underline;
+	}
+	
+	.feature-image-container {
+		@apply relative flex-1;
+	}
+	
+	.feature-image {
+		@apply w-full h-full object-cover;
+	}
+	
+	.feature-content {
+		@apply p-6 flex flex-col gap-3 bg-white/90 dark:bg-neutral-800/90;
+	}
+	
+	.feature-title {
+		@apply text-lg font-semibold text-neutral-900 dark:text-white;
+	}
+	
+	.feature-subtitle {
+		@apply text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed;
+	}
+	
+	.feature-cta {
+		@apply text-sm font-medium text-primary-600 dark:text-primary-400 flex items-center gap-1 mt-auto hover:text-primary-700 dark:hover:text-primary-300 transition-colors;
+	}
+</style>

@@ -1,0 +1,114 @@
+---
+// Customer Logos Social Proof Section
+// ------------
+// Description: Shows customer logos and trust indicators to build credibility
+
+// Components
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import { Image } from 'astro:assets'
+
+// Content - Available logos
+import airTableLogo from '../../../assets/logos/airtable-logo.svg'
+import asanaLogo from '../../../assets/logos/asana-logo.svg'
+import basecampLogo from '../../../assets/logos/basecamp-logo.svg'
+import evernotelogo from '../../../assets/logos/evernote-logo.svg'
+import notionLogo from '../../../assets/logos/notion-logo.svg'
+import slackLogo from '../../../assets/logos/slack-logo.svg'
+---
+
+<Section classes="bg-white dark:bg-neutral-950 border-y border-neutral-100 dark:border-neutral-800">
+	<Row>
+		<Col span="12" align="center" classes="mb-8">
+			<div class="social-proof-header">
+				<h2 class="text-2xl font-bold text-neutral-900 dark:text-white mb-2">
+					Más de 500+ empresas confían en Katuq
+				</h2>
+				<p class="text-neutral-600 dark:text-neutral-400">
+					Empresas de todos los tamaños optimizan sus procesos con nuestra plataforma
+				</p>
+			</div>
+		</Col>
+	</Row>
+	<Row classes="items-center justify-center">
+		<Col span="12">
+			<div class="logos-grid">
+				<div class="logo-item">
+					<Image src={airTableLogo} alt="Airtable" class="logo" />
+				</div>
+				<div class="logo-item">
+					<Image src={asanaLogo} alt="Asana" class="logo" />
+				</div>
+				<div class="logo-item">
+					<Image src={basecampLogo} alt="Basecamp" class="logo" />
+				</div>
+				<div class="logo-item">
+					<Image src={evernotelogo} alt="Evernote" class="logo" />
+				</div>
+				<div class="logo-item">
+					<Image src={notionLogo} alt="Notion" class="logo" />
+				</div>
+				<div class="logo-item">
+					<Image src={slackLogo} alt="Slack" class="logo" />
+				</div>
+			</div>
+		</Col>
+	</Row>
+	<Row>
+		<Col span="12" align="center" classes="mt-8">
+			<div class="trust-metrics">
+				<div class="metric">
+					<div class="metric-number">4.8/5</div>
+					<div class="metric-label">Satisfacción Cliente</div>
+				</div>
+				<div class="metric">
+					<div class="metric-number">35%</div>
+					<div class="metric-label">Reducción de Costos</div>
+				</div>
+				<div class="metric">
+					<div class="metric-number">3-6</div>
+					<div class="metric-label">Meses ROI</div>
+				</div>
+				<div class="metric">
+					<div class="metric-number">24/7</div>
+					<div class="metric-label">Soporte</div>
+				</div>
+			</div>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	.social-proof-header {
+		@apply max-w-2xl mx-auto text-center;
+	}
+	
+	.logos-grid {
+		@apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center;
+	}
+	
+	.logo-item {
+		@apply flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100;
+	}
+	
+	.logo {
+		@apply h-8 w-auto max-w-[120px] object-contain;
+	}
+	
+	.trust-metrics {
+		@apply grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto;
+	}
+	
+	.metric {
+		@apply text-center p-4;
+	}
+	
+	.metric-number {
+		@apply text-2xl lg:text-3xl font-bold text-primary-600 dark:text-primary-400 mb-1;
+	}
+	
+	.metric-label {
+		@apply text-sm text-neutral-600 dark:text-neutral-400 font-medium;
+	}
+</style>

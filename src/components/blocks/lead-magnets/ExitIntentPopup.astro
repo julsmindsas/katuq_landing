@@ -1,0 +1,194 @@
+---
+// Exit Intent Popup for Lead Capture
+// ------------
+// Description: Popup that appears when user is about to leave the page
+
+// Components
+import Button from '../../ui/Button.astro'
+---
+
+<div id="exit-intent-popup" class="exit-popup-overlay" style="display: none;">
+	<div class="exit-popup">
+		<div class="exit-popup-header">
+			<button class="close-popup" id="close-popup" aria-label="Cerrar">&times;</button>
+		</div>
+		<div class="exit-popup-content">
+			<div class="popup-icon">⚡</div>
+			<h3>¡Espera! No te vayas sin tu análisis gratuito</h3>
+			<p>Descubre cómo Katuq puede reducir tus costos operativos hasta un 35% en los próximos 6 meses.</p>
+			
+			<form class="exit-capture-form" id="exit-form">
+				<div class="form-group">
+					<input type="email" placeholder="Tu email empresarial" required />
+				</div>
+				<div class="form-group">
+					<select required>
+						<option value="">Tamaño de tu empresa</option>
+						<option value="1-10">1-10 empleados</option>
+						<option value="11-50">11-50 empleados</option>
+						<option value="51-200">51-200 empleados</option>
+						<option value="200+">200+ empleados</option>
+					</select>
+				</div>
+				<Button size="lg" type="submit" classes="w-full">
+					Recibir Análisis Gratuito
+				</Button>
+			</form>
+			
+			<div class="popup-benefits">
+				<div class="benefit">✅ Análisis personalizado de tu industria</div>
+				<div class="benefit">✅ Cálculo de ROI específico para tu empresa</div>
+				<div class="benefit">✅ Guía de automatización paso a paso</div>
+			</div>
+			
+			<p class="popup-disclaimer">
+				Sin spam. Solo contenido valioso para optimizar tu negocio.
+			</p>
+		</div>
+	</div>
+</div>
+
+<style>
+	.exit-popup-overlay {
+		@apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4;
+		backdrop-filter: blur(4px);
+	}
+	
+	.exit-popup {
+		@apply bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto border border-neutral-200 dark:border-neutral-700;
+		animation: popupSlideIn 0.3s ease-out;
+	}
+	
+	@keyframes popupSlideIn {
+		from {
+			opacity: 0;
+			transform: scale(0.9) translateY(-20px);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
+	}
+	
+	.exit-popup-header {
+		@apply flex justify-end p-4 pb-0;
+	}
+	
+	.close-popup {
+		@apply text-2xl text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors cursor-pointer bg-transparent border-none;
+	}
+	
+	.exit-popup-content {
+		@apply p-6 pt-2 text-center;
+	}
+	
+	.popup-icon {
+		@apply text-4xl mb-4;
+	}
+	
+	.exit-popup-content h3 {
+		@apply text-xl font-bold text-neutral-900 dark:text-white mb-3;
+	}
+	
+	.exit-popup-content p {
+		@apply text-neutral-600 dark:text-neutral-300 mb-6 leading-relaxed;
+	}
+	
+	.exit-capture-form {
+		@apply space-y-4 mb-6;
+	}
+	
+	.form-group input,
+	.form-group select {
+		@apply w-full px-4 py-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white focus:border-primary-500 focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-800 outline-none transition-all;
+	}
+	
+	.popup-benefits {
+		@apply space-y-2 mb-6 text-left max-w-sm mx-auto;
+	}
+	
+	.benefit {
+		@apply text-sm text-neutral-700 dark:text-neutral-300 flex items-center gap-2;
+	}
+	
+	.popup-disclaimer {
+		@apply text-xs text-neutral-500 dark:text-neutral-400 !mb-0;
+	}
+</style>
+
+<script>
+	let hasShownPopup = false;
+	let exitIntentTriggered = false;
+	
+	function showExitPopup() {
+		if (!hasShownPopup && !exitIntentTriggered) {
+			document.getElementById('exit-intent-popup').style.display = 'flex';
+			hasShownPopup = true;
+			exitIntentTriggered = true;
+		}
+	}
+	
+	function hideExitPopup() {
+		document.getElementById('exit-intent-popup').style.display = 'none';
+	}
+	
+	document.addEventListener('DOMContentLoaded', function() {
+		// Exit intent detection
+		let mouseLeaveDelay;
+		
+		document.addEventListener('mouseleave', function(e) {
+			if (e.clientY <= 0) {
+				mouseLeaveDelay = setTimeout(showExitPopup, 100);
+			}
+		});
+		
+		document.addEventListener('mouseenter', function() {
+			if (mouseLeaveDelay) {
+				clearTimeout(mouseLeaveDelay);
+			}
+		});
+		
+		// Time-based fallback (show after 60 seconds)
+		setTimeout(function() {
+			if (!hasShownPopup) {
+				showExitPopup();
+			}
+		}, 60000);
+		
+		// Scroll-based trigger (when user scrolls back up quickly)
+		let lastScrollY = window.scrollY;
+		window.addEventListener('scroll', function() {
+			const currentScrollY = window.scrollY;
+			if (currentScrollY < lastScrollY - 200 && currentScrollY > 500) {
+				if (!hasShownPopup) {
+					showExitPopup();
+				}
+			}
+			lastScrollY = currentScrollY;
+		});
+		
+		// Close popup handlers
+		document.getElementById('close-popup').addEventListener('click', hideExitPopup);
+		
+		document.getElementById('exit-intent-popup').addEventListener('click', function(e) {
+			if (e.target === this) {
+				hideExitPopup();
+			}
+		});
+		
+		// Form submission
+		document.getElementById('exit-form').addEventListener('submit', function(e) {
+			e.preventDefault();
+			// Here you would typically send the data to your backend
+			alert('¡Gracias! Recibirás tu análisis personalizado pronto.');
+			hideExitPopup();
+		});
+		
+		// ESC key to close
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape') {
+				hideExitPopup();
+			}
+		});
+	});
+</script>

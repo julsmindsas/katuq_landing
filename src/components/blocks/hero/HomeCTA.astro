@@ -22,10 +22,26 @@ import hero2Image from '../../../assets/hero-02.png'
 	<Row>
 		<Col span="2" />
 		<Col span="8" align="center">
-			 <h1 class="">Simplifica tus procesos,</h1> 
-			 <h1 class="">Aumenta tus resultados</h1>
-			<p class="pb-0 text-lg">Automatiza, optimiza y conquista tu mercado.</p>
-			<Button size="xl" link="/">Conoce más</Button>
+			 <h1 class="">Automatiza tu negocio y reduce costos hasta 35%</h1>
+			<p class="pb-0 text-lg">Plataforma integral que conecta WhatsApp, Telegram, Messenger y más. ROI garantizado en 3-6 meses.</p>
+			<div class="hero-stats">
+				<div class="stat">
+					<span class="stat-number">4 horas</span>
+					<span class="stat-label">ahorradas por día</span>
+				</div>
+				<div class="stat">
+					<span class="stat-number">35%</span>
+					<span class="stat-label">reducción de costos</span>
+				</div>
+				<div class="stat">
+					<span class="stat-number">500+</span>
+					<span class="stat-label">empresas confían</span>
+				</div>
+			</div>
+			<div class="cta-buttons">
+				<Button size="xl" link="/contact">Solicita una Demo</Button>
+				<Button size="xl" variant="outline" link="#features">Ver Características</Button>
+			</div>
 		</Col>
 		<Col span="2" />
 		<Col span="2" />
@@ -57,5 +73,49 @@ import hero2Image from '../../../assets/hero-02.png'
 	img {
 		max-width: auto;
 		height: 400px;
+	}
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-top: 1.5rem;
+	}
+	@media (max-width: 768px) {
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+	.hero-stats {
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+		margin: 2rem 0;
+		flex-wrap: wrap;
+	}
+	.stat {
+		text-align: center;
+		padding: 1rem;
+	}
+	.stat-number {
+		display: block;
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: #9b00ff;
+	}
+	.stat-label {
+		display: block;
+		font-size: 0.875rem;
+		color: #6b7280;
+		margin-top: 0.25rem;
+	}
+	@media (max-width: 768px) {
+		.hero-stats {
+			gap: 1rem;
+		}
+		.stat {
+			padding: 0.5rem;
+		}
 	}
 </style>
